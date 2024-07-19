@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "DaMiOne";
+  src: url("fonts/DaMiOne-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cydre";
+  src: url("fonts/Cydre/Cygre-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+:root {
+  font-family: "Cydre", sans-serif;
+  font-weight: 400;
+  padding: 0px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+h1 {
+  font-family: "DaMiOne";
+}

@@ -1,0 +1,32 @@
+#root {
+  min-width: 374px;
+  max-width: 384px;
+  /* min-height: 798px; */
+  margin: 0 auto;
+}
+
+.load-page {
+  background-image: url('assets/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-page {
+  background-image: url('assets/main-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.green-copy {
+  filter: brightness(0) saturate(100%) invert(63%) sepia(66%) saturate(366%) hue-rotate(48deg) brightness(93%) contrast(88%);
+}
+
+.gray-copy {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(0%) hue-rotate(95deg) brightness(88%) contrast(86%);
+}
+
+.modalActive {
+  top: calc(50% - 90px);
+  left: calc(50% - 154px);
+}
+
