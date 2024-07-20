@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import Portal, { createContainer } from './Portal';
 
 const MODAL_CONTAINER_ID = 'modal-container-id';

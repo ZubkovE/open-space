@@ -25,12 +25,12 @@ const copyTextToClipboard = async (text: string) => {
 const MainPage = () => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [isMounted, setMounted] = React.useState(false);
-    const [count, setCount] = React.useState(1);
+    // const [count, setCount] = React.useState(1);
 
     React.useEffect(() => {
         // setTimeout(()=> setCount(count + 1), 5000)
         setTimeout(() => setMounted(true), 5000)
-    }, [count])
+    }, [])
 
     return (
         <>
@@ -49,7 +49,7 @@ const MainPage = () => {
                         </div>
                     </div>
                     <div className="border-2 border-white overflow-hidden rounded-r-[30px] rounded-bl-[30px] h-[20px] mt-[5px]">
-                        <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + count +"/5"}`}></span>
+                        <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + 2 +"/5"}`}></span>
                     </div>
                 </div>
                 <img src={planetPng} className="relative -top-[12px] left-[65px] z-1" />

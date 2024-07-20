@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import LoadPage from './pages/LoadPage'
 import MainPage from './pages/MainPage'
-import { useSearchParams } from 'react-router-dom'
 function App() {
   const [isLoaded, setIsLoaded] = useState(false)
 
