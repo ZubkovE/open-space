@@ -29,7 +29,7 @@ const MainPage = () => {
 
     React.useEffect(() => {
         // setTimeout(()=> setCount(count + 1), 5000)
-        setTimeout(() => setMounted(true), 5000)
+        setTimeout(() => setMounted(true), 30000)
     }, [])
 
     return (
@@ -49,7 +49,7 @@ const MainPage = () => {
                         </div>
                     </div>
                     <div className="border-2 border-white overflow-hidden rounded-r-[30px] rounded-bl-[30px] h-[20px] mt-[5px]">
-                        <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + 2 +"/5"}`}></span>
+                        <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + 2 + "/5"}`}></span>
                     </div>
                 </div>
                 <img src={planetPng} className="relative -top-[12px] left-[65px] z-1" />
@@ -64,19 +64,21 @@ const MainPage = () => {
                                 setIsCopied(true);
                                 setTimeout(() => { setIsCopied(false) }, 3000)
                             }}>
-                            {isCopied ? ("Скопировано") : (
-                                `OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}`
-                            )}
+                            <div className="truncate">
+                                {isCopied ? ("Скопировано") : (
+                                    `OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}`
+                                )}
+                            </div>
                             <img src={copyIcon} className={`transition delay-200 ${isCopied ? "green-copy" : "gray-copy"}`} />
                         </button>
                         <div className="leading-[17.6px] mt-[10px]">Повышение уровня: <br />
                             5 приглашенных друзей</div>
                     </div>
                     <div className="text-center">
-                        <button 
-                        type="button" 
-                        className="relative h-[60px] m-auto w-[265px] -top-[24px] rounded-[15px] bg-[#4A74B9] text-[20px] transition delay-200 active:bg-[#7C95BF]"
-                        onClick={() => {Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}&text=${encodeURI(ruText)}`)}}
+                        <button
+                            type="button"
+                            className="relative h-[60px] m-auto w-[265px] -top-[24px] rounded-[15px] bg-[#4A74B9] text-[20px] transition delay-200 active:bg-[#7C95BF]"
+                            onClick={() => { Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}&text=${encodeURI(ruText)}`) }}
                         >Пригласить друзей</button>
                     </div>
                 </div>
