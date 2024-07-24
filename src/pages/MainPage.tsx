@@ -29,7 +29,7 @@ const MainPage = () => {
 
     React.useEffect(() => {
         // setTimeout(()=> setCount(count + 1), 5000)
-        setTimeout(() => setMounted(true), 30000)
+        // setTimeout(() => setMounted(true), 30000)
     }, [])
 
     return (
@@ -52,7 +52,9 @@ const MainPage = () => {
                         <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + 2 + "/5"}`}></span>
                     </div>
                 </div>
-                <img src={planetPng} className="relative -top-[12px] left-[65px] z-1" />
+                <div className="w-full flex justify-center relative -top-[12px] z-1">
+                    <img src={planetPng} className="planet" />
+                </div>
                 <div className="flex-col mt-[6px] mx-[30px] items-end">
                     <div className="text-center">
                         Приглашай друзей! Чем больше друзей вы пригласите, тем выше будет уровень вашей планеты
@@ -62,7 +64,7 @@ const MainPage = () => {
                             onClick={() => {
                                 copyTextToClipboard(`https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}`);
                                 setIsCopied(true);
-                                setTimeout(() => { setIsCopied(false) }, 3000)
+                                setTimeout(() => { setIsCopied(false) }, 3000);
                             }}>
                             <div className="truncate">
                                 {isCopied ? ("Скопировано") : (
