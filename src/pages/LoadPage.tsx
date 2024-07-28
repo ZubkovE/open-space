@@ -8,7 +8,7 @@ const LoadPage = () => {
 
     return (
         <div className="load-page h-full">
-            <h1 className='w-[206px] h-[120px] leading-[40px] text-[42px] ml-[30px] pt-[80px]'>OPEN SPACE AI</h1>
+            <h1 className='w-[206px] h-[120px] leading-[40px] text-[42px] ml-[30px] pt-[60px]'>OPEN SPACE AI</h1>
             <div className="fixed top-0 flex items-center justify-center h-screen w-screen">
                 <span><MoonLoader
                     cssOverride={override}

@@ -19,7 +19,7 @@ function App() {
   }, [])
 
   return (
-    <div className='h-full min-h-[750px]'>
+    <div className='h-full min-h-screen'>
       {isLoaded ?
         (
           <MainPage />

@@ -1,5 +1,4 @@
 import friensIcon from "../assets/icon-1.svg"
-import planetPng from "../assets/image planet.png"
 import copyIcon from "../assets/copy-icon.svg"
 import React from "react"
 import Modal from "./Modal"
@@ -21,19 +20,19 @@ const copyTextToClipboard = async (text: string) => {
 const MainPage = () => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [isMounted, setMounted] = React.useState(false);
-    const [progressLevel, setProgressLevel] = React.useState(2);
+    //const [progressLevel, setProgressLevel] = React.useState(2);
 
     React.useEffect(() => {
         // setTimeout(()=> setCount(count + 1), 5000)
-        // setTimeout(() => setMounted(true), 30000)
+        setTimeout(() => setMounted(true), 30000)
     }, [])
 
     return (
         <>
             <Modal {... { isMounted }} />
             <div className="main-page h-full flex-col item-center">
-                <h1 className="text-[32px] pt-[30px] text-center">МОЯ ПЛАНЕТА</h1>
-                <h2 className="pl-[30px] mt-[8px] text-[32px]"> 100 000 </h2>
+                <h1 className="text-[32px] pt-[20px] text-center">МОЯ ПЛАНЕТА</h1>
+                <h2 className="pl-[30px] text-[28px]"> 100 000 </h2>
                 <div className="border-2 mx-[30px] rounded-r-[30px] rounded-bl-[30px] h-[108px] px-[30px] pt-[26px]">
                     <div className="flex justify-between">
                         <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">2</span></h1>
@@ -48,16 +47,15 @@ const MainPage = () => {
                         <span className={`block rounded-r-[30px] h-full bg-white w-1/5`}></span>
                     </div>
                 </div>
-                <div className="w-full flex justify-center relative -top-[12px] z-1">
-                    <div className="planet rounded-full">
-                        <img src={planetPng} className=" " />
+                <div className="w-full flex justify-center relative -top-[16px] z-1">
+                    <div className="planet rounded-full h-[223px]">
                     </div>
                 </div>
                 <div className="flex-col  mx-[30px] items-end">
-                    <div className="text-center">
+                    <div className="text-center leading-4 text-base">
                         Приглашай друзей! Чем больше друзей вы пригласите, тем выше будет уровень вашей планеты
                     </div>
-                    <div className="mt-[10px] border-0 drop-shadow-[0_0_30px_rgba(30,30,30,1)] bg-gradient-to-b from-[#FFFFFF4D] to-[#0000004D] rounded-r-[20px] rounded-bl-[20px] h-[126px] px-[30px] pt-[20px]">
+                    <div className="invite-friends-block mt-[10px] border-0 rounded-r-[20px] rounded-bl-[20px] h-[126px] px-[30px] pt-[20px]">
                         <button className={`border-b-2 bg-transparent w-full text-start flex justify-between h-max overflow-hidden px-1 transition delay-200 ${isCopied ? ("border-[#81B94A] text-[#81B94A]") : ("border-[#A8A8A8] text-[#A8A8A8]")}`}
                             onClick={() => {
                                 copyTextToClipboard(`https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}`);

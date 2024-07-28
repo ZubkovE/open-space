@@ -53,6 +53,14 @@ h1 {
 .planet{
   width: 59.3%;
   box-shadow: inset 0px 5px 10px 0px #FFFFFF, 0px -3px 7px 0px #FFFFFF;
+  background-image: url('assets/image-planet.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.invite-friends-block{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(30, 30, 30, 0.3) 58.26%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
 }
 
 .green-copy {
