@@ -7,11 +7,7 @@ import Modal from "./Modal"
 
 const ruText = '👆Твое приглашение здесь\n' +
     '\n' +
-    'Я дарю тебе Домик Хомяка 🎁🛖🐹. Забери его сейчас и стань одним из первых участников самой горячей build-to-earn игры в Telegram — CITY Holder 🏠. Будь одним из первых и пригласи своих друзей 👨‍🦱👳‍♂️🧔‍♂️🙎‍♀️👩‍🍳.\n' +
-    '\n' +
-    '🎁 Забери бесплатно Домик Хомяка 🐹\n' +
-    '🦸‍♂️ Построй свой Дом Друзей\n' +
-    '🔥 3 уровня реферальной программы'
+    'Заходи в Open Space AI!'
 
 const copyTextToClipboard = async (text: string) => {
     try {
@@ -25,7 +21,7 @@ const copyTextToClipboard = async (text: string) => {
 const MainPage = () => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [isMounted, setMounted] = React.useState(false);
-    // const [count, setCount] = React.useState(1);
+    const [progressLevel, setProgressLevel] = React.useState(2);
 
     React.useEffect(() => {
         // setTimeout(()=> setCount(count + 1), 5000)
@@ -49,13 +45,15 @@ const MainPage = () => {
                         </div>
                     </div>
                     <div className="border-2 border-white overflow-hidden rounded-r-[30px] rounded-bl-[30px] h-[20px] mt-[5px]">
-                        <span className={`block rounded-r-[30px] h-full bg-white ${"w-" + 2 + "/5"}`}></span>
+                        <span className={`block rounded-r-[30px] h-full bg-white w-1/5`}></span>
                     </div>
                 </div>
                 <div className="w-full flex justify-center relative -top-[12px] z-1">
-                    <img src={planetPng} className="planet" />
+                    <div className="planet rounded-full">
+                        <img src={planetPng} className=" " />
+                    </div>
                 </div>
-                <div className="flex-col mt-[6px] mx-[30px] items-end">
+                <div className="flex-col  mx-[30px] items-end">
                     <div className="text-center">
                         Приглашай друзей! Чем больше друзей вы пригласите, тем выше будет уровень вашей планеты
                     </div>
