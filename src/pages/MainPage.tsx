@@ -30,11 +30,11 @@ const MainPage = () => {
     return (
         <>
             <Modal {... { isMounted }} />
-            <div className="main-page h-full flex-col">
-                <h1 className="text-[32px] pt-[20px] text-center">МОЯ ПЛАНЕТА</h1>
-                <div className="px-[30px] flex flex-col items-center relative">
-                    <h2 className="min-w-[333px] text-[28px] text-start"> 100 000 </h2>
-                    <div className="min-w-[333px] border-2 rounded-r-[30px] rounded-bl-[30px] h-[108px] px-[30px] pt-[26px]">
+            <div className="main-page h-full flex flex-col items-center px-[10px]">
+                <h1 className="text-3xl mt-[16px]">МОЯ ПЛАНЕТА</h1>
+                <div className="flex flex-col items-center relative">
+                    <h2 className="min-w-[300px] text-2xl text-start"> 100 000 </h2>
+                    <div className="min-w-[300px] border-2 rounded-r-[30px] rounded-bl-[30px] h-[108px] px-[30px] pt-[24px]">
                         <div className="flex justify-between">
                             <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">2</span></h1>
                             <div className="flex h-max align-center">
@@ -50,16 +50,16 @@ const MainPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full flex justify-center relative -top-[16px] z-1">
-                    <div className="planet rounded-full h-[233px] w-[233px]">
+                <div className="w-full flex justify-center relative bottom-[20px] z-1">
+                    <div className="planet rounded-full h-[210px] w-[210px]">
                     </div>
                 </div>
-                <div className="flex flex-col items-center mx-[30px]">
-                    <div className="text-center leading-4 text-base max-w-[333px]">
+                <div className="flex flex-col items-center relative bottom-[12px]">
+                    <div className="text-center leading-4 text-sm max-w-[300px]">
                         Приглашай друзей! Чем больше друзей вы пригласите, тем выше будет уровень вашей планеты
                     </div>
-                    <div className="min-w-[333px] invite-friends-block mt-[10px] border-0 rounded-r-[20px] rounded-bl-[20px] h-[126px] px-[30px] pt-[20px]">
-                        <button className={`border-b-2 bg-transparent w-full text-start flex justify-between h-max overflow-hidden px-1 transition delay-200 ${isCopied ? ("border-[#81B94A] text-[#81B94A]") : ("border-[#A8A8A8] text-[#A8A8A8]")}`}
+                    <div className="min-w-[300px] invite-friends-block mt-[5px] border-0 rounded-r-[20px] rounded-bl-[20px] h-[116px] px-[30px] pt-[20px]">
+                        <button className={`border-b-2 text-sm bg-transparent w-full text-start flex justify-between h-max overflow-hidden px-1 transition delay-200 ${isCopied ? ("border-[#81B94A] text-[#81B94A]") : ("border-[#A8A8A8] text-[#A8A8A8]")}`}
                             onClick={() => {
                                 copyTextToClipboard(`https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}`);
                                 setIsCopied(true);
@@ -72,12 +72,12 @@ const MainPage = () => {
                             </div>
                             <img src={copyIcon} className={`transition delay-200 ${isCopied ? "green-copy" : "gray-copy"}`} />
                         </button>
-                        <div className="leading-[17.6px] mt-[10px]">Повышение уровня: <br />
+                        <div className="leading-[17.6px] text-sm mt-[5px]">Повышение уровня: <br />
                             5 приглашенных друзей</div>
                     </div>
                     <button
                         type="button"
-                        className="relative bottom-[26px] h-[60px] m-auto w-[265px] rounded-[15px] bg-[#4A74B9] text-[20px] transition delay-200 active:bg-[#7C95BF]"
+                        className="relative bottom-[26px] h-[50px] w-[230px] rounded-[15px] bg-[#4A74B9] text-base transition delay-200 active:bg-[#7C95BF]"
                         onClick={() => { Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=https://t.me/OpenSpaceAI_bot?start=${Telegram.WebApp.initDataUnsafe.user?.username}&text=${encodeURI(ruText)}`) }}
                     >Пригласить друзей</button>
                 </div>
