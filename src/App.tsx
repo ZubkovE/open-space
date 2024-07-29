@@ -19,12 +19,12 @@ function App() {
     tg.expand();
     tg.disableVerticalSwipes()
     // tg.ready();
-    // if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk'|| tg.platform === 'unknown') {
-    setBlock(false);
-    // } else {
-       getTgUser();
+    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+      setBlock(true);
+    } else {
+      getTgUser();
       setTimeout(() => setIsLoaded(true), 3000);
-    //}
+    }
   }, [])
 
   return (

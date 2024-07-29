@@ -3,6 +3,8 @@ import copyIcon from "../assets/copy-icon.svg"
 import React, { CSSProperties } from "react"
 import Modal from "./Modal"
 import { User } from "../api/models/userInterface"
+import { checkSubscribe } from "../api/user/user.service"
+import { modalFlag } from "../api/models/modalType"
 
 
 const ruText = '👆Твое приглашение здесь\n' +
@@ -21,23 +23,36 @@ const copyTextToClipboard = async (text: string) => {
 
 const MainPage = (user: User) => {
     const [isCopied, setIsCopied] = React.useState(false);
-    const [isMounted, setMounted] = React.useState(false);
+    const [isMounted, setIsMounted] = React.useState(false);
+    const [isMember, setIsMember] = React.useState<number>();
     const [progressLevel, setProgressLevel] = React.useState<CSSProperties>();
+
+    const checkMember = async () => {
+        const member = await checkSubscribe(user?.telegramId)
+        setIsMember(member)
+    }
 
     React.useEffect(() => {
         if (user) {
-
             const progressCSS = {
                 width: (user?.invitedFriends - user?.levelStart) / (user?.levelTarget - user?.levelStart) * 100 + "%"
             }
             setProgressLevel(progressCSS)
         }
-        setTimeout(() => setMounted(true), 60000)
     }, [])
 
+    React.useEffect(() => {
+        
+        checkMember();
+        if (isMember === 0) {
+            setIsMounted(true)
+        } else {
+            setIsMounted(false)
+        }
+    }, [isMember])
     return (
         <>
-            <Modal {... { isMounted }} />
+            <Modal {... { isMounted, isMember, checkMember } as modalFlag} />
             <div className="main-page h-full flex flex-col items-center">
                 <h1 className="text-3xl mt-[3vh]">МОЯ ПЛАНЕТА</h1>
                 <div className="flex flex-col items-center relative">
@@ -60,7 +75,7 @@ const MainPage = (user: User) => {
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
                     <div className="planet rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
-                        <img src={user?.planetURL} alt="" className="z-1 w-full h-full object-cover"/>
+                        <img src={user?.planetURL} alt="" className="z-1 w-full h-full object-cover" />
                     </div>
                 </div>
                 <div className="flex flex-col items-center relative bottom-[12px]">

@@ -1,10 +1,12 @@
-import { useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import Portal, { createContainer } from './Portal';
+import { modalFlag } from '../api/models/modalType';
 
 const MODAL_CONTAINER_ID = 'modal-container-id';
-type modalFlag = { isMounted: boolean }
+
 
 const Modal = (props: modalFlag) => {
+    const [isClcked, setIsClicked] = useState<boolean>()
     useEffect(() => {
         createContainer({ id: MODAL_CONTAINER_ID });
     }, []);
@@ -18,10 +20,20 @@ const Modal = (props: modalFlag) => {
                             <h2 className='text-black text-base mb-2 text-center'>
                                 Планета недоступна, если ты не подписан на наш канал
                             </h2>
-                            <button type="button" 
-                            className="relative text-base h-[10vh] w-[247px] rounded-[15px] bg-[#4A74B9] transition delay-200 active:bg-[#7C95BF]"
-                            onClick={() => Telegram.WebApp.openTelegramLink('https://t.me/openspaceaim')}
-                            >Подписаться</button>
+                            <button type="button"
+                                className="relative text-base h-[10vh] w-[247px] rounded-[15px] bg-[#4A74B9] transition delay-200 active:bg-[#7C95BF]"
+                                onClick={() => {
+                                    if (isClcked) {
+                                        props.checkMember();
+                                        if (props.isMember !== 0) {
+                                            setIsClicked(false);
+                                        }
+                                    } else {
+                                        setIsClicked(true);
+                                        Telegram.WebApp.openTelegramLink('https://t.me/openspaceaim');
+                                    }
+                                }}
+                            >{isClcked ? ("Проверить подписку") : ("Подписаться")}</button>
                         </div>
                     </div>
                 </div>
