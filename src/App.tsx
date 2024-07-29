@@ -16,9 +16,11 @@ function App() {
     setUser(tgUser);
   }
   useEffect(() => {
+    tg.ready();
+    tg.setHeaderColor('#000');
+    tg.setBackgroundColor('#000')
     tg.expand();
-    tg.disableVerticalSwipes()
-    // tg.ready();
+    tg.disableVerticalSwipes();
     if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
       setBlock(true);
     } else {
