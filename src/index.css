@@ -21,7 +21,7 @@
   font-family: "Cydre", sans-serif;
   font-weight: 400;
   padding: 0px;
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
 }
 
@@ -58,7 +58,6 @@ h1 {
 
 .planet{
   box-shadow: inset 0px 5px 10px 0px #FFFFFF, 0px -3px 7px 0px #FFFFFF;
-  background-image: url('assets/image-planet.png');
   background-size: cover;
   background-position: center;
 }

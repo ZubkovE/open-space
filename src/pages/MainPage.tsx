@@ -1,7 +1,9 @@
 import friensIcon from "../assets/icon-1.svg"
 import copyIcon from "../assets/copy-icon.svg"
-import React from "react"
+import planetImage from "../assets/image-planet.png"
+import React, { CSSProperties } from "react"
 import Modal from "./Modal"
+import { User } from "../api/models/userInterface"
 
 
 const ruText = '👆Твое приглашение здесь\n' +
@@ -17,14 +19,21 @@ const copyTextToClipboard = async (text: string) => {
     }
 };
 
-const MainPage = () => {
+
+const MainPage = (user: User) => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [isMounted, setMounted] = React.useState(false);
-    //const [progressLevel, setProgressLevel] = React.useState(2);
+    const [progressLevel, setProgressLevel] = React.useState<CSSProperties>();
 
     React.useEffect(() => {
-        // setTimeout(()=> setCount(count + 1), 5000)
-        setTimeout(() => setMounted(true), 30000)
+        if (user) {
+
+            const progressCSS = {
+                width: (user?.invitedFriends - user?.levelStart) / (user?.levelTarget - user?.levelStart) * 100 + "%"
+            }
+            setProgressLevel(progressCSS)
+        }
+        setTimeout(() => setMounted(true), 60000)
     }, [])
 
     return (
@@ -33,25 +42,26 @@ const MainPage = () => {
             <div className="main-page h-full flex flex-col items-center">
                 <h1 className="text-3xl mt-[3vh]">МОЯ ПЛАНЕТА</h1>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="min-w-[300px] text-2xl text-start"> 100 000 </h2>
+                    <h2 className="min-w-[300px] text-2xl text-start"> {user?.coinBalance} </h2>
                     <div className="min-w-[300px] border-2 rounded-r-[30px] rounded-bl-[30px] h-[17vh] px-[30px] pt-[3vh]">
                         <div className="flex justify-between">
-                            <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">2</span></h1>
+                            <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">{user?.level}</span></h1>
                             <div className="flex h-max align-center">
                                 <img src={friensIcon} className="" />
                                 <div className="text-[18px]">
-                                    10
+                                    {user?.invitedFriends}
                                 </div>
                             </div>
                         </div>
 
                         <div className="border-2 border-white overflow-hidden rounded-r-[30px] rounded-bl-[30px] h-[3vh] mt-[1vh]">
-                            <span className={`block rounded-r-[30px] h-full bg-white w-1/5`}></span>
+                            <span className={`block rounded-r-[30px] h-full bg-white`} style={progressLevel}></span>
                         </div>
                     </div>
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
-                    <div className="planet rounded-full h-[36vh] w-[36vh]">
+                    <div className="planet rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
+                        <img src={user?.planetURL} alt="" className="z-1"/>
                     </div>
                 </div>
                 <div className="flex flex-col items-center relative bottom-[12px]">
