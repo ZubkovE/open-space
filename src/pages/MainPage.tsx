@@ -1,6 +1,5 @@
 import friensIcon from "../assets/icon-1.svg"
 import copyIcon from "../assets/copy-icon.svg"
-import planetImage from "../assets/image-planet.png"
 import React, { CSSProperties } from "react"
 import Modal from "./Modal"
 import { User } from "../api/models/userInterface"
