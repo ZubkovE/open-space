@@ -20,7 +20,7 @@ function App() {
     tg.disableVerticalSwipes()
     // tg.ready();
     // if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk'|| tg.platform === 'unknown') {
-    //   setBlock(true);
+    setBlock(false);
     // } else {
        getTgUser();
       setTimeout(() => setIsLoaded(true), 3000);
