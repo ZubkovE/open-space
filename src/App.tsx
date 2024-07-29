@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     tg.expand();
     tg.disableVerticalSwipes()
-    tg.ready();
+    // tg.ready();
     if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk'|| tg.platform === 'unknown') {
       setBlock(true);
     } else {
