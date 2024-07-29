@@ -60,7 +60,7 @@ const MainPage = (user: User) => {
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
                     <div className="planet rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
-                        <img src={user?.planetURL} alt="" className="z-1"/>
+                        <img src={user?.planetURL} alt="" className="z-1 w-full h-full object-cover"/>
                     </div>
                 </div>
                 <div className="flex flex-col items-center relative bottom-[12px]">
