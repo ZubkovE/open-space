@@ -51,7 +51,7 @@ function App() {
   }, [])
 
   return (
-    <div className='h-full min-h-screen overflow-hidden'>
+    <div className='h-full overflow-hidden'>
       {block ? (<QrPage />)
         : (
           isLoaded ?
