@@ -26,7 +26,7 @@ function App() {
   }
 
   const sleep = async () => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       setTimeout(() => {resolve()}, 3000);
     })
   }
