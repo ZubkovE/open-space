@@ -8,6 +8,13 @@ import { getPlanetImage } from './api/planetPhoto/planetPhoto.service';
 import { MainPageInterface } from './api/models/mainPageInterface';
 
 const tg = Telegram.WebApp;
+
+const sleep = async () => {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {resolve()}, 3000);
+  })
+}
+
 function App() {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [block, setBlock] = useState<boolean>(false);
@@ -15,20 +22,16 @@ function App() {
   const [urlPlanet, setUrlPlanet] = useState<string>();
 
   const getAll = async () => {
-   await Promise.all([async () => {
+    
+    await Promise.all([(async () => {
       const tgUser = await getUser(tg.initDataUnsafe.user?.id);
     
       const url = await getPlanetImage(tgUser.planetURL);
       setUser(tgUser);
       setUrlPlanet(url);
-    }, sleep ])
-    setIsLoaded(true);    
-  }
+    })(), sleep() ])
 
-  const sleep = async () => {
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {resolve()}, 3000);
-    })
+    setIsLoaded(true);    
   }
 
   useEffect(() => {
