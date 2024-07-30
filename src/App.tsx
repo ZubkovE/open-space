@@ -11,7 +11,7 @@ const tg = Telegram.WebApp;
 
 const sleep = async () => {
   return new Promise<void>((resolve) => {
-    setTimeout(() => {resolve()}, 3000);
+    setTimeout(() => { resolve() }, 3000);
   })
 }
 
@@ -22,16 +22,19 @@ function App() {
   const [urlPlanet, setUrlPlanet] = useState<string>();
 
   const getAll = async () => {
-    
-    await Promise.all([(async () => {
-      const tgUser = await getUser(tg.initDataUnsafe.user?.id);
-    
-      const url = await getPlanetImage(tgUser.planetURL);
-      setUser(tgUser);
-      setUrlPlanet(url);
-    })(), sleep() ])
+    try {
+      await Promise.all([(async () => {
+        const tgUser = await getUser(tg.initDataUnsafe.user?.id);
 
-    setIsLoaded(true);    
+        const url = await getPlanetImage(tgUser.planetURL);
+        setUser(tgUser);
+        setUrlPlanet(url);
+      })(), sleep()])
+
+      setIsLoaded(true);
+    } catch (error) {
+      tg.showAlert((error as Error).message)
+    }
   }
 
   useEffect(() => {
@@ -40,10 +43,10 @@ function App() {
     tg.expand();
     tg.disableVerticalSwipes();
     //if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
-      setBlock(false);
+    setBlock(false);
     //} else {
-      getAll();
-      console.log(urlPlanet)
+    getAll();
+    console.log(urlPlanet)
     //}
   }, [])
 
@@ -53,7 +56,7 @@ function App() {
         : (
           isLoaded ?
             (
-              <MainPage {... {user, urlPlanet} as MainPageInterface} />
+              <MainPage {... { user, urlPlanet } as MainPageInterface} />
             )
             : (
               <LoadPage />
