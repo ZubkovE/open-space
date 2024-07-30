@@ -19,21 +19,21 @@ function App() {
     const url = await getPlanetImage(tgUser.planetURL);
     setUser(tgUser);
     setUrlPlanet(url);
+    setTimeout(() => setIsLoaded(true), 3000);    
   }
 
+
   useEffect(() => {
-    tg.ready();
     tg.setHeaderColor('#000');
     tg.setBackgroundColor('#000')
     tg.expand();
     tg.disableVerticalSwipes();
-    // if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+    //if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
       setBlock(false);
-    // } else {
+    //} else {
       getAll();
       console.log(urlPlanet)
-      setTimeout(() => setIsLoaded(true), 3000);
-    // }
+    //}
   }, [])
 
   return (
