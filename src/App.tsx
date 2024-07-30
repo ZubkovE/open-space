@@ -15,13 +15,21 @@ function App() {
   const [urlPlanet, setUrlPlanet] = useState<string>();
 
   const getAll = async () => {
-    const tgUser = await getUser(tg.initDataUnsafe.user?.id);
-    const url = await getPlanetImage(tgUser.planetURL);
-    setUser(tgUser);
-    setUrlPlanet(url);
-    setTimeout(() => setIsLoaded(true), 3000);    
+   await Promise.all([async () => {
+      const tgUser = await getUser(tg.initDataUnsafe.user?.id);
+    
+      const url = await getPlanetImage(tgUser.planetURL);
+      setUser(tgUser);
+      setUrlPlanet(url);
+    }, sleep ])
+    setIsLoaded(true);    
   }
 
+  const sleep = async () => {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {resolve()}, 3000);
+    })
+  }
 
   useEffect(() => {
     tg.setHeaderColor('#000');
