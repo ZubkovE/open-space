@@ -2,9 +2,9 @@ import friensIcon from "../assets/icon-1.svg"
 import copyIcon from "../assets/copy-icon.svg"
 import React, { CSSProperties } from "react"
 import Modal from "./Modal"
-import { User } from "../api/models/userInterface"
 import { checkSubscribe } from "../api/user/user.service"
 import { modalFlag } from "../api/models/modalType"
+import { MainPageInterface } from "../api/models/mainPageInterface"
 
 
 const ruText = '👆Твое приглашение здесь\n' +
@@ -21,21 +21,21 @@ const copyTextToClipboard = async (text: string) => {
 };
 
 
-const MainPage = (user: User) => {
+const MainPage = (props: MainPageInterface) => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [isMounted, setIsMounted] = React.useState(false);
     const [isMember, setIsMember] = React.useState<number>();
     const [progressLevel, setProgressLevel] = React.useState<CSSProperties>();
 
     const checkMember = async () => {
-        const member = await checkSubscribe(user?.telegramId)
+        const member = await checkSubscribe(props.user?.telegramId)
         setIsMember(member)
     }
 
     React.useEffect(() => {
-        if (user) {
+        if (props) {
             const progressCSS = {
-                width: (user?.invitedFriends - user?.levelStart) / (user?.levelTarget - user?.levelStart) * 100 + "%"
+                width: (props?.user.invitedFriends - props?.user.levelStart) / (props?.user.levelTarget - props?.user.levelStart) * 100 + "%"
             }
             setProgressLevel(progressCSS)
         }
@@ -56,14 +56,14 @@ const MainPage = (user: User) => {
             <div className="main-page h-full flex flex-col items-center">
                 <h1 className="text-3xl mt-[3vh]">МОЯ ПЛАНЕТА</h1>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="min-w-[300px] text-2xl text-start"> {user?.coinBalance} </h2>
+                    <h2 className="min-w-[300px] text-2xl text-start"> {props?.user.coinBalance} </h2>
                     <div className="min-w-[300px] border-2 rounded-r-[30px] rounded-bl-[30px] h-[17vh] px-[30px] pt-[3vh]">
                         <div className="flex justify-between">
-                            <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">{user?.level}</span></h1>
+                            <h1 className="h-max">УРОВЕНЬ <span className="font-['Cydre']">{props?.user.level}</span></h1>
                             <div className="flex h-max align-center">
                                 <img src={friensIcon} className="" />
                                 <div className="text-[18px]">
-                                    {user?.invitedFriends}
+                                    {props?.user.invitedFriends}
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ const MainPage = (user: User) => {
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
                     <div className="planet rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
-                        <img src={user?.planetURL} alt="" className="z-1 w-full h-full object-cover" />
+                        <img src={props.urlPlanet} alt="" className="z-1 w-full h-full object-cover" />
                     </div>
                 </div>
                 <div className="flex flex-col items-center relative bottom-[12px]">
