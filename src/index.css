@@ -20,7 +20,7 @@ h1 {
   font-family: "DaMiOne";
 }
 
-html {
+#root {
   overflow: hidden;
   font-family: "Cydre", sans-serif;
   font-weight: 400;
