@@ -21,7 +21,7 @@ const Modal = (props: modalFlag) => {
                                 Планета недоступна, если ты не подписан на наш канал
                             </h2>
                             <button type="button"
-                                className="relative text-base h-[10vh] w-[247px] rounded-[15px] bg-[#4A74B9] transition delay-200 active:bg-[#7C95BF]"
+                                className={`relative text-base h-[10vh] w-[247px] rounded-[15px] ${isClcked ? "text-black bg-transparent" : "text-white bg-[#4A74B9]"} transition delay-200 active:bg-[#7C95BF]`}
                                 onClick={() => {
                                     if (isClcked) {
                                         props.checkMember();
