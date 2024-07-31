@@ -31,7 +31,7 @@ function App() {
       })(), sleep()])
       setIsLoaded(true);
     } catch (error) {
-      tg.showAlert(((error as Error).message +`\n` + (error as Error).name))
+      tg.showAlert(((error as Error).message + `\n` + (error as Error).name))
     }
   }
 
@@ -41,12 +41,12 @@ function App() {
     tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
-    //if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
-    setBlock(false);
-    //} else {
-    getAll();
-    console.log(urlPlanet)
-    //}
+    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+      setBlock(true);
+    } else {
+      getAll();
+      console.log(urlPlanet)
+    }
   }, [])
 
   return (
