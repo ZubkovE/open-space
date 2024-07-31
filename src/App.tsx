@@ -33,7 +33,7 @@ function App() {
 
       setIsLoaded(true);
     } catch (error) {
-      tg.showAlert((error as Error).message + `\n ${urlPlanet}`)
+      tg.showAlert((error as Error).message +`\n` + (error as Error).name + `\n` + (error as Error).stack)
     }
   }
 
