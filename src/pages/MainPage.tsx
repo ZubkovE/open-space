@@ -42,7 +42,7 @@ const MainPage = (props: MainPageInterface) => {
     }, [])
 
     React.useEffect(() => {
-        
+
         checkMember();
         if (isMember === 0) {
             setIsMounted(true)
@@ -52,8 +52,8 @@ const MainPage = (props: MainPageInterface) => {
     }, [isMember])
     return (
         <>
-            <Modal {... { isMounted, isMember, checkMember } as modalFlag} />
             <div className="main-page h-full flex flex-col items-center">
+                <Modal {... { isMounted, isMember, checkMember } as modalFlag} />
                 <h1 className="text-3xl mt-[3vh]">МОЯ ПЛАНЕТА</h1>
                 <div className="flex flex-col items-center relative">
                     <h2 className="min-w-[300px] text-2xl text-start"> {props?.user.coinBalance} </h2>

@@ -33,13 +33,14 @@ function App() {
 
       setIsLoaded(true);
     } catch (error) {
-      tg.showAlert((error as Error).message)
+      tg.showAlert((error as Error).message + `\n ${urlPlanet}`)
     }
   }
 
   useEffect(() => {
+    tg.ready();
     tg.setHeaderColor('#000');
-    tg.setBackgroundColor('#000')
+    tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
     //if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
@@ -51,7 +52,7 @@ function App() {
   }, [])
 
   return (
-    <div className='h-full overflow-hidden'>
+    <div>
       {block ? (<QrPage />)
         : (
           isLoaded ?
