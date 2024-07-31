@@ -42,12 +42,11 @@ function App() {
     tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
-    //  if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
-    setBlock(false);
-    //} else {
-    getAll();
-    console.log(urlPlanet)
-    //}
+    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+      setBlock(false);
+    } else {
+      getAll();
+    }
   }, [])
 
   return (
@@ -61,8 +60,8 @@ function App() {
             : (
               <LoadPage />
             )}
-            <Footer/>
-            </>
+          <Footer />
+        </>
         )}
     </div>
   )
