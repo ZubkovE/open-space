@@ -31,7 +31,7 @@ function App() {
       })(), sleep()])
       setIsLoaded(true);
     } catch (error) {
-      tg.showAlert((error as Error).message +`\n` + (error as Error).name + `\n` + (error as Error).stack)
+      tg.showAlert(((error as Error).message +`\n` + (error as Error).name + `\n` + (error as Error).stack))
     }
   }
 
