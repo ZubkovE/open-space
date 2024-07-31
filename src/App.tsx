@@ -6,6 +6,7 @@ import { getUser } from './api/user/user.service';
 import QrPage from './pages/QrPage';
 import { getPlanetImage } from './api/planetPhoto/planetPhoto.service';
 import { MainPageInterface } from './api/models/mainPageInterface';
+import Footer from './components/Footer';
 
 const tg = Telegram.WebApp;
 
@@ -41,25 +42,27 @@ function App() {
     tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
-    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
-      setBlock(true);
-    } else {
-      getAll();
-      console.log(urlPlanet)
-    }
+    //  if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+    setBlock(false);
+    //} else {
+    getAll();
+    console.log(urlPlanet)
+    //}
   }, [])
 
   return (
     <div>
       {block ? (<QrPage />)
-        : (
-          isLoaded ?
+        : (<>
+          {isLoaded ?
             (
               <MainPage {... { user, urlPlanet } as MainPageInterface} />
             )
             : (
               <LoadPage />
-            )
+            )}
+            <Footer/>
+            </>
         )}
     </div>
   )
