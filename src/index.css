@@ -20,7 +20,12 @@ h1 {
   font-family: "DaMiOne";
 }
 
-#root { 
+body {
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+#root {
   overflow: hidden;
   font-family: "Cydre", sans-serif;
   font-weight: 400;
