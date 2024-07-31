@@ -41,12 +41,12 @@ function App() {
     tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
-    //if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
-      setBlock(false);
-    //} else {
+    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+      setBlock(true);
+    } else {
       getAll();
-    //  console.log(urlPlanet)
-    //}
+      console.log(urlPlanet)
+    }
   }, [])
 
   return (
