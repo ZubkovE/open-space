@@ -26,11 +26,9 @@ function App() {
       await Promise.all([(async () => {
         const tgUser = await getUser(tg.initDataUnsafe.user?.id);
         const url = await getPlanetImage(tgUser.planetURL);
-        tg.showAlert(`${tgUser }\n ${url}`);
         setUser(tgUser);
         setUrlPlanet(url);
       })(), sleep()])
-
       setIsLoaded(true);
     } catch (error) {
       tg.showAlert((error as Error).message +`\n` + (error as Error).name + `\n` + (error as Error).stack)
