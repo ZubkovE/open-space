@@ -83,14 +83,14 @@ const MainPage = (props: MainPageInterface) => {
                     <div className="text-center leading-4 text-sm max-w-[300px]">
                         Приглашай друзей! Чем больше друзей вы пригласите, тем выше будет уровень вашей планеты
                     </div>
-                    <div className="min-w-[300px] invite-friends-block mt-[1vh] border-0 rounded-r-[20px] rounded-bl-[20px] h-[18vh] px-[30px] pt-[3vh]">
+                    <div className="min-w-[300px] max-w-[300px] invite-friends-block mt-[1vh] border-0 rounded-r-[20px] rounded-bl-[20px] h-[18vh] px-[30px] pt-[3vh]">
                         <button className={`border-b-2 text-sm bg-transparent w-full text-start flex justify-between h-max overflow-hidden px-1 transition delay-200 ${isCopied ? ("border-[#81B94A] text-[#81B94A]") : ("border-[#A8A8A8] text-[#A8A8A8]")}`}
                             onClick={() => {
                                 copyTextToClipboard(`https://t.me/OpenSpaceAI_bot?start=${tgData.user?.username ? tgData.user?.username : tgData.user?.id}`);
                                 setIsCopied(true);
                                 setTimeout(() => { setIsCopied(false) }, 3000);
                             }}>
-                            <div className="truncate">
+                            <div className="truncate max-w-full">
                                 {isCopied ? ("Скопировано") : (
                                     `OpenSpaceAI_bot?start=${tgData.user?.username ? tgData.user?.username : tgData.user?.id}`
                                 )}
