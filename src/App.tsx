@@ -23,17 +23,13 @@ function App() {
   const [urlPlanet, setUrlPlanet] = useState<string>();
 
   const getAll = async () => {
-    try {
-      await Promise.all([(async () => {
-        const tgUser = await getUser(tg.initDataUnsafe.user?.id);
-        const url = await getPlanetImage(tgUser.planetURL);
-        setUser(tgUser);
-        setUrlPlanet(url);
-      })(), sleep()])
-      setIsLoaded(true);
-    } catch (error) {
-      tg.showAlert(((error as Error).message + `\n` + (error as Error).name))
-    }
+    await Promise.all([(async () => {
+      const tgUser = await getUser(tg.initDataUnsafe.user?.id);
+      const url = await getPlanetImage(tgUser?.planetURL);
+      setUser(tgUser);
+      setUrlPlanet(url);
+    })(), sleep()])
+    setIsLoaded(true);
   }
 
   useEffect(() => {
