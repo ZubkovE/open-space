@@ -42,7 +42,7 @@ function App() {
     tg.setBackgroundColor('#000');
     tg.expand();
     tg.disableVerticalSwipes();
-    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'webk' || tg.platform === 'unknown') {
+    if (tg.platform === 'tdesktop' || tg.platform === 'macos' || tg.platform === 'weba' || tg.platform === 'web' || tg.platform === 'webk' || tg.platform === 'unknown') {
       setBlock(true);
     } else {
       getAll();
