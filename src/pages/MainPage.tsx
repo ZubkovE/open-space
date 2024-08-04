@@ -75,7 +75,7 @@ const MainPage = (props: MainPageInterface) => {
                     </div>
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
-                    <div className="rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
+                    <div className="planet rounded-full h-[36vh] w-[36vh] z-2 overflow-hidden">
                         <img src={props.urlPlanet} alt="" className="z-1 w-full h-full object-cover" />
                     </div>
                 </div>
