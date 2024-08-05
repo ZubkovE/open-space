@@ -5,11 +5,11 @@ import Modal from "./Modal"
 import { checkSubscribe } from "../api/user/user.service"
 import { modalFlag } from "../api/models/modalType"
 import { MainPageInterface } from "../api/models/mainPageInterface"
-import planetImg from "../assets/image-planet.png"
+
 
 const ruText = '👆Твое приглашение здесь\n' +
     '\n' +
-    'Заходи в Open Space AI!'
+    'Лови билет в космос, скоро взлетаем 🌞🚀'
 
 const copyTextToClipboard = async (text: string) => {
     try {
