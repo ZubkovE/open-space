@@ -5,7 +5,7 @@ import Modal from "./Modal"
 import { checkSubscribe } from "../api/user/user.service"
 import { modalFlag } from "../api/models/modalType"
 import { MainPageInterface } from "../api/models/mainPageInterface"
-
+import planetImg from "../assets/image-planet.png"
 
 const ruText = '👆Твое приглашение здесь\n' +
     '\n' +
@@ -76,7 +76,7 @@ const MainPage = (props: MainPageInterface) => {
                 </div>
                 <div className="w-full flex justify-center relative bottom-[3vh] z-1">
                     <div className="planet rounded-full h-[36vh] w-[36vh] z-4 overflow-hidden">
-                        <img src={props.urlPlanet} alt="" className="z-1 w-full h-full object-cover" />
+                        <img src={props.urlPlanet} alt="" className="-z-4 w-full rounded-full h-full object-cover" />
                     </div>
                 </div>
                 <div className="flex flex-col items-center relative bottom-[12px]">

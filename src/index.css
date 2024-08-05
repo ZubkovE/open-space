@@ -55,7 +55,7 @@ body {
 
 
 .planet {
-  box-shadow: 0px -10px 100px 0px gray, 0px -9px 12px -4px white;
+  box-shadow: 0px -10px 100px 0px gray, 0px -9px 12px -4px white, inset 0px 9px 12px -4px white;
 }
 
 .invite-friends-block {
