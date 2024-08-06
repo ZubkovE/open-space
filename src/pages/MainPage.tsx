@@ -7,7 +7,7 @@ import { modalFlag } from "../api/models/modalType"
 import { MainPageInterface } from "../api/models/mainPageInterface"
 
 
-const ruText = '\n Лови билет в космос, скоро взлетаем 🌞🚀'
+const ruText = 'Лови билет в космос, скоро взлетаем 🌞🚀'
 
 const copyTextToClipboard = async (text: string) => {
     try {
